@@ -19,3 +19,8 @@ if __name__ == "__main__":
     assert solution(1, 6, 5) == (-5, -1)
     assert solution(1, 4, 4) == (-2,)
     assert solution(1, 6, 45) is None
+
+
+x = 1+2j
+y = complex(x)
+print(type(y))
