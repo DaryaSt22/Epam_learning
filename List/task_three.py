@@ -15,4 +15,9 @@ def foo(nums: List[int]) -> List[int]:
 
     return result
 
-print(foo([1, 2, 3]))
+# print(foo([1, 2, 3]))
+
+
+my_tuple = 40, 56.6, 90
+print(my_tuple)
+print(*my_tuple)
