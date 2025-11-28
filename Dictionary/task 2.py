@@ -12,6 +12,5 @@ def check(row_start: int, row_end: int, column_start: int, column_end: int) -> L
 
         new_list.append(row)
 
-    return new_list
 
 print(check(2,4,3,7))
