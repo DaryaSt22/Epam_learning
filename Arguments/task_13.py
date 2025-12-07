@@ -8,10 +8,9 @@
 # repeat("hi", times=3, upper=True)
 
 def repeat(text, times=1, upper=False):
-    if upper == True:
-        return f"{text.upper()}{times}{upper}"
-    else:
-        return f"{text}{times}{upper}"
+    if upper:
+        text = text.upper()
+    return text * times
 
 
 print(repeat("hi", upper=True))
