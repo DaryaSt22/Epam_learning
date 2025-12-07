@@ -12,13 +12,14 @@ show_person("Anna", 25, "Tallinn")
 show_person(city="Tallinn", name="Anna", age=25)
 
 
-
-
-def generate_squares(**kwargs):
-    return n ** n
-
-print(generate_squares(5))
-
-
+# def generate_squares(n):
+#     my_dict = {}
+#     for n in range(1, n + 1):
+#         my_dict[n] = (n ** 2)
+#
+#     return my_dict
+#
+#
+# print(generate_squares(5))
 
 # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
