@@ -5,12 +5,28 @@
 
 
 def list_to_string(items, sep=", ", reverse=False):
-    items = sep.join(items)
+    # items = sep.join(items)
     if reverse:
-        items = reversed(items)
-
+        items = sep.join(map(str, reversed(items)))
+    else:
+        return sep.join(items)
 
     return items
 
 
-print(list_to_string(["Cat", "1456", "22", "88", "3648", "Dog", "Milk"], ";", True))
+print(list_to_string(["Cat", "1456", "22", "88", "3648", "Dog", "Milk"], ", ", True))
+
+
+
+
+# def list_to_string(items, sep=", ", reverse=False):
+#     # если нужно развернуть список — разворачиваем его
+#     if reverse:
+#         items = list(reversed(items))   # или items = items[::-1]
+#
+#     # на этом этапе items уже в нужном порядке
+#     # приводим все элементы к строкам
+#     str_items = map(str, items)
+#
+#     # соединяем строки через разделитель sep и возвращаем результат
+#     return sep.join(str_items)
