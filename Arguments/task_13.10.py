@@ -12,4 +12,4 @@ def check_password(password, min_length=8, strict=False):
         password = len(password) >= min_length
     return password
 
-print(check_password("djgbbDDjj^&", 9, True))
+print(check_password("djgbbDDjj^&ljn2", 9, True))
