@@ -6,10 +6,10 @@
 
 
 def check_password(password, min_length=8, strict=False):
-    pass
+    if strict:
+        password = any(ch.isdigit() for ch in password) and len(password) >= min_length
+    if not strict:
+        password = len(password) >= min_length
+    return password
 
-#  for word in words:
-#         if keep_short == True and len(word) <= max_len:
-#             result.append(word)
-#         if keep_short == False and len(word) > max_len:
-#             result.append(word)
+print(check_password("djgbbDDjj^&", 9, True))
