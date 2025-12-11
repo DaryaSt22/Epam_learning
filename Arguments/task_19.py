@@ -5,4 +5,7 @@
 # count_args() → 0
 
 def count_args(*args):
-    pass
+    return len(args)
+
+print(count_args(1, 2, 3))
+print(count_args())
