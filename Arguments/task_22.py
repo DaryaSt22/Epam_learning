@@ -4,4 +4,8 @@
 
 
 def debug(*values):
-    pass
+    result = '|'.join(map(str, values))
+    return result
+
+
+print(debug(1, "hi", True))
