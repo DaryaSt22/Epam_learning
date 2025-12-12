@@ -4,8 +4,9 @@
 
 
 def debug(*values):
-    result = '|'.join(map(str, values))
-    return result
+    print(*values, sep=" | ")
+    result = ' | '.join(map(str, values))
+    print(result)
 
 
-print(debug(1, "hi", True))
+debug(1, "hi", True)
