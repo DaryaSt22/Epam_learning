@@ -11,4 +11,5 @@ def print_four(a, b, c, d):
 
 
 print_four([1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4])
+print()
 
