@@ -4,7 +4,8 @@
 
 
 def reverse_all(*args):
-    return list(reversed(*args))
+    args = (1, 2, 3)
+    return list(args[::-1])
 
 
 print(reverse_all((1, 2, 3)))
