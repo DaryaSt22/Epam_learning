@@ -7,6 +7,7 @@
 
 
 def print_kwargs(**kwargs):
-    return kwargs
+    for key, value in kwargs.items():
+        print(f"{key} = {value}")
 
-print(print_kwargs(a=1, b=2))
+print_kwargs(a=1, b=2)
