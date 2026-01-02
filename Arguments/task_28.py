@@ -5,4 +5,7 @@
 
 
 def show_all(*args, **kwargs):
-    pass
+    print(args)
+    print(kwargs)
+
+show_all(1, 2, 3, a=10, b=20)
