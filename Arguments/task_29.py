@@ -4,18 +4,15 @@
 # всё остальное игнорирует,
 # возвращает новый словарь только с этими ключами (если их нет — не добавлять).
 
-
 def person_info(**kwargs):
     new_dict = {}
+    search_keys = ["name", "age", "city"]
 
-    if 'name' in kwargs:
-        kwargs.get('name')
-    elif 'age' in kwargs:
-        kwargs.get('age')
-    elif 'city' in kwargs:
-        kwargs.get('city')
+    for key in search_keys:
+        if key in kwargs:
+            new_dict[key] = kwargs.get(key)
 
     return new_dict
 
 
-print(person_info(name="Anna", age=25, city="Tallinn", hobby="Python"))
+print(person_info(name="Anna", age=254, city="Tallinn", hobby="Python"))
