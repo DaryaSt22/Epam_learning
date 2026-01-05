@@ -15,4 +15,4 @@ def person_info(**kwargs):
     return new_dict
 
 
-print(person_info(name="Anna", age=254, city="Tallinn", hobby="Python"))
+print(person_info(name="Anna", age=2524, city="Tallinn", hobby="Python"))
