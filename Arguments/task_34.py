@@ -8,7 +8,9 @@
 def settings(**options):
     # print(options)
     sorted_dict_items = sorted(options.items(), key=lambda item: item[0])
-    return f"Setting: {sorted_dict_items}"
+    # return f"Setting: {sorted_dict_items}"
+    parts = [f"{k}={v}" for k, v in sorted_dict_items]
+    return "Settings: " + "; ".join(parts)
 
 
 print(settings(theme="dark", lang="ru", debug=True))
