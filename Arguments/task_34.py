@@ -6,4 +6,9 @@
 
 
 def settings(**options):
-    pass
+    # print(options)
+    sorted_dict_items = sorted(options.items(), key=lambda item: item[0])
+    return f"Setting: {sorted_dict_items}"
+
+
+print(settings(theme="dark", lang="ru", debug=True))
