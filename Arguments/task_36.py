@@ -8,4 +8,4 @@
 def func(a, b=10, *args, c=20, **kwargs):
     print(a, b, args, c, kwargs)
 
-func(55, 2, (55, 98), 109, {"home": "Viln"})
+func(55, 2, (55, 98), 109, home="Viln", c=22)
