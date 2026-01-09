@@ -19,12 +19,20 @@ def query(data: DataType, selector: ModifierFunc,
 
 def select(*columns: str) -> ModifierFunc:
     """Return function that selects only specific columns from dataset"""
-    pass
+
+    def fn(data):
+        columns = ('name', 'gender', 'sport')
+
+
+    return fn
 
 
 def field_filter(column: str, *values: Any) -> ModifierFunc:
     """Return function that filters specific column to be one of `values`"""
-    pass
+
+    def fn(data):
+        pass
+
 
 
 def test_query():
