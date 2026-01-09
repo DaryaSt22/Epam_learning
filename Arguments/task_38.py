@@ -11,9 +11,10 @@ def add(a, b):
 
 
 def debug_call(func, *args, **kwargs):
-     return args, kwargs
+    print(args, kwargs)
+    result = func(4, 5), args, kwargs
+    return result
 
 
-
-
-print(add(2, 2))
+print(debug_call(add, 55, 88, a=10, b=89))
+# print(add(2, 2))
