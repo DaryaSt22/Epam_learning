@@ -3,6 +3,12 @@ from typing import Dict, Any, Callable, Iterable
 DataType = Iterable[Dict[str, Any]]
 ModifierFunc = Callable[[DataType], DataType]
 
+friends = [
+    {'name': 'Sam', 'gender': 'male', 'sport': 'Basketball'},
+    {'name': 'Emily', 'gender': 'female', 'sport': 'Volleyball'},
+    {'name': 'Roma', 'gender': 'male', 'sport': 'Sex-game'},
+]
+
 
 def query(data: DataType, selector: ModifierFunc,
           *filters: ModifierFunc) -> DataType:
@@ -23,17 +29,22 @@ def select(*columns: str) -> ModifierFunc:
     def fn(data):
         columns = ('name', 'gender', 'sport')
 
-
     return fn
 
 
 def field_filter(column: str, *values: Any) -> ModifierFunc:
     """Return function that filters specific column to be one of `values`"""
 
-    def fn(data):
-        pass
+    def fn(data: DataType) -> DataType:
+        new_list = []
 
+        for record in friends:
+            for value in values:
+                if record[column] == value:
+                    new_list.append(record)
 
+        return new_list
+    return fn
 
 def test_query():
     friends = [
@@ -50,4 +61,3 @@ def test_query():
 
 if __name__ == "__main__":
     test_query()
-
