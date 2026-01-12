@@ -17,3 +17,4 @@ def outer(*args, **kwargs):
 
 
 print(outer(5, 4, 6))
+print(outer(a=5, b=4, c=6))
