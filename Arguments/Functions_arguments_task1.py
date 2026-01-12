@@ -27,7 +27,8 @@ def select(*columns: str) -> ModifierFunc:
     """Return function that selects only specific columns from dataset"""
 
     def fn(data):
-        columns = ('name', 'gender', 'sport')
+       my_list = []
+
 
     return fn
 
