@@ -15,4 +15,4 @@ def call_safe(func, *args, **kwargs):
         return "division by zero"
 
 
-print(call_safe( 5, func))
+print(call_safe( 5, 5))
