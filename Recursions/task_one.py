@@ -23,11 +23,9 @@ def seq_sum(sequence: Union[List, Tuple]) -> int:
     for x in sequence:
         if type(x) == int:
             total += x
-        elif type(x) == list:
-            total += seq_sum(x)
-        elif type(x) == tuple:
+        elif type(x) == list or type(x) == tuple:
             total += seq_sum(x)
     return total
 
 
-print(seq_sum([1, 2, 3]))
+print(seq_sum([1,2,3,[4,5, (6, 7, 4)]]))
