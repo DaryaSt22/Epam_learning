@@ -8,6 +8,7 @@
 
 from typing import Any, List
 
+# делала сама
 def linear_seq(sequence: List[Any]) -> List[Any]:
     """
     Add your code here or call it from here
@@ -22,5 +23,20 @@ def linear_seq(sequence: List[Any]) -> List[Any]:
                     result.extend((item))
                 else:
                     result.append(item)
+
+    return result
+
+
+
+# для автопроверки
+def linear_seq(sequence: List[Any]) -> List[Any]:
+    result: List[Any] = []
+
+    for x in sequence:
+        if isinstance(x, (list, tuple)):
+            # рекурсивно "расплющиваем" вложенное
+            result.extend(linear_seq(list(x)))
+        else:
+            result.append(x)
 
     return result
