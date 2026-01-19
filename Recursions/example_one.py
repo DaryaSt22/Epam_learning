@@ -15,4 +15,4 @@ def get_fib(n):
             prev_1 = n_fib
     return n_fib
 
-print(get_fib(4))
+print(get_fib(3))
