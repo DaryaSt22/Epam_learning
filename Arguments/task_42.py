@@ -7,4 +7,9 @@
 
 
 def format_message(user, /, text, *args, prefix="[MSG]", **kwargs):
-    pass
+    pairs = [(1, 'one'), (3, 'three'), (2, 'two'), (4, 'four')]
+    pairs.sort()
+    return pairs, user, text, args, prefix, kwargs
+
+
+print(format_message("All", "lolo", 125, 44, cake="Lemon"))

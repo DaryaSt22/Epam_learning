@@ -1,3 +1,16 @@
+# square
+# S = a ** 2
+# a - side length of a square
+#
+# rectangle
+# S = a * b
+# a, b - sides length of a rectangle
+
+# circle
+# S = Pi * r ** 2
+# r – a circle radius
+
+
 shape_type = input('Please, provide a shape you want to calculate area: ')
 
 if shape_type == 'square':
