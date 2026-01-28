@@ -18,4 +18,19 @@ def log(fn):
     """
     Add your code here or call it from here
     """
-    pass
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        return_fn = fn(*args, **kwargs)
+        end_time = time.time()
+        final_time = end_time - start_time
+        name = fn.__name__
+        param_names = list(inspect.signature(fn).parameters)
+        args_str = ", ".join(f"{n}={v}" for n, v in zip(param_names, args))
+        kwargs_str = ", ".join(f"{k}={v}" for k, v in kwargs.items())
+        line = f"{name}; args: {args_str}; kwargs: {kwargs_str}; execution time: {final_time:.2f} sec."
+        with open("log.txt", "a", encoding="utf-8") as f:
+            f.write(line + "\n")
+
+        return return_fn
+
+    return wrapper
