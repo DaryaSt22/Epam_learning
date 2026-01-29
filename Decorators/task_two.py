@@ -12,6 +12,8 @@
 # ...
 # foo; args: a=1, b=2; kwargs: c=3; execution time: 0.12 sec.
 # ...
+import inspect
+import time
 
 
 def log(fn):
