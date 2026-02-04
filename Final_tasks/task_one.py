@@ -16,25 +16,65 @@ def split(data: str, sep=None, maxsplit=-1):
     """
     if data == '' and sep is None:
         return []
-    elif maxsplit == 0:
+    if maxsplit == 0:
         if sep is None:
             trimmed = data.strip()
             return [] if trimmed == '' else [trimmed]
-        else:
-            return [data]
-    elif maxsplit != 0:
+        return [data]
+    if sep is None:
         result = []
         current_chars = []
-        for char in data:
+        splits_done = 0
+
+        for i, char in enumerate(data):
             if char.isspace():
                 if current_chars:
                     word = ''.join(current_chars)
                     result.append(word)
                     current_chars.clear()
-                    continue
+
+                    if maxsplit > 0:
+                        splits_done += 1
+                        if splits_done == maxsplit:
+                            rest = data[i + 1:].lstrip()
+                            if rest:
+                                result.append(rest)
+                            return result
+                continue
+
             current_chars.append(char)
-            if current_chars:
-                result.append(''.join(current_chars))
+
+        if current_chars:
+            result.append(''.join(current_chars))
+        return result
+
+
+    else:
+        result = []
+        start = 0
+        splits_done = 0
+        sep_len = len(sep)
+        i = 0
+
+        while i <= len(data) - sep_len:
+
+            if data[i:i + sep_len] == sep:
+                result.append(data[start:i])
+                start = i + sep_len
+                splits_done += 1
+
+                if maxsplit > 0 and splits_done == maxsplit:
+                    result.append(data[start:])
+
+                    return result
+
+                i = start
+                continue
+
+            i += 1
+
+        result.append(data[start:])
+
         return result
 
 
