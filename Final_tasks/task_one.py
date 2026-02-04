@@ -14,6 +14,9 @@ def split(data: str, sep=None, maxsplit=-1):
     """
     Add your code here or call it from here
     """
+    if sep == '':
+        raise ValueError("empty separator")
+
     if data == '' and sep is None:
         return []
     if maxsplit == 0:
