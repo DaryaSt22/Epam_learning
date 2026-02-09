@@ -16,13 +16,11 @@ class HistoryDict:
         if args or kwargs:
             self._data.update(*args, **kwargs)
 
-
     def set_value(self, key, value):
         self._data[key] = value
+        self._history.append(key)
+        if len(self._history) > 5:
+            self._history.pop(0)
 
     def get_history(self):
-        pass
-
-
-d = HistoryDict({"foo": 42})
-print(d._data)
+        return self._history
