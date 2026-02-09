@@ -30,4 +30,18 @@
 
 
 class Counter:
-    pass
+    def __init__(self, start=0, stop=None):
+        self.start = start
+        self.stop = stop
+        self.current = start
+
+    def increment(self):
+        if self.stop is None:
+            self.current = self.current + 1
+        elif self.current < self.stop:
+            self.current = self.current + 1
+        else:
+            print("Maximal value is reached.")
+
+    def get(self):
+        return self.current
