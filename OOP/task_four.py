@@ -8,3 +8,5 @@
 #
 # ["bar"]
 
+class HistoryDict:
+    pass
