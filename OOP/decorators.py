@@ -10,7 +10,10 @@ class Vehicle(ABC):
             base_price: int,
             mileage: int
     ):
-        pass
+        self.brand_name = brand_name
+        self.year_of_issue = year_of_issue
+        self.base_price = base_price
+        self.mileage = mileage
 
     def wheels_num(self) -> int:
         return 0
