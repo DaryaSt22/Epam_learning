@@ -1,5 +1,5 @@
 from abc import ABC
-# from abc import abstractmethod
+from abc import abstractmethod
 
 
 class Vehicle(ABC):
@@ -15,17 +15,22 @@ class Vehicle(ABC):
         self.base_price = base_price
         self.mileage = mileage
 
+    @abstractmethod
     def wheels_num(self) -> int:
         return 0
 
     def vehicle_type(self) -> str:
-        pass
+        return self.brand_name + " " + self.__class__.__name__
 
     def is_motorcycle(self) -> bool:
-        pass
+        return self.wheels_num() == 2
 
+    @property
     def purchase_price(self) -> float:
-        pass
+        price = self.base_price - 0.1 * self.mileage
+        if price < 100_000:
+            return 100_000
+        return price
 
 
 # Don't change class implementation
@@ -50,3 +55,20 @@ class Truck(Vehicle):
 class Bus(Vehicle):
     def wheels_num(self):
         return 6
+
+
+
+vehicles = (
+    Car(brand_name="Toyota", year_of_issue=2020, base_price=1_000_000, mileage=150_000),
+    Motorcycle(brand_name="Suzuki", year_of_issue=2015, base_price=800_000, mileage=35_000),
+    Truck(brand_name="Scania", year_of_issue=2018, base_price=15_000_000, mileage=850_000),
+    Bus(brand_name="MAN", year_of_issue=2000, base_price=10_000_000, mileage=950_000),
+)
+
+for v in vehicles:
+    print(
+        f"Vehicle type={v.vehicle_type()}\n"
+        f"Is motorcycle={v.is_motorcycle()}\n"
+        f"Purchase price={v.purchase_price}\n"
+    )
+
