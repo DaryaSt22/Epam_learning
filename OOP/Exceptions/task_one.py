@@ -35,16 +35,51 @@
 
 class Pagination:
     def __init__(self, data, items_on_page):
-        pass
+        self.data = data
+        self.items_on_page = items_on_page
+        self.pages = []
+        start = 0
+        while start < len(self.data):
+            end = start + self.items_on_page
+            page = self.data[start:end]
+            self.pages.append(page)
+            start = end
 
+    @property
+    def item_count(self):
+        return len(self.data)
+
+    @property
     def page_count(self):
-        pass
+        return len(self.pages)
 
     def count_items_on_page(self, page_number):
-        pass
+        if page_number < 0 or page_number >= self.page_count:
+            raise Exception("Invalid index. Page is missing.")
+        return len(self.pages[page_number])
 
     def find_page(self, data):
-        pass
+        new_pages = set()
+        start = 0
+        if not data:
+            raise Exception(f"'{data}' is missing on the pages")
+
+        while True:
+            index = self.data.find(data, start)
+            if index == -1:
+                break
+            start_page = index // self.items_on_page
+            end_page = (index + len(data) - 1) // self.items_on_page
+            for p in range(start_page, end_page + 1):
+                new_pages.add(p)
+            start = index + 1
+
+        if not new_pages:
+            raise Exception(f"'{data}' is missing on the pages")
+
+        return sorted(new_pages)
 
     def display_page(self, page_number):
-        pass
+        if page_number < 0 or page_number >= self.page_count:
+            raise Exception("Invalid index. Page is missing.")
+        return self.pages[page_number]
