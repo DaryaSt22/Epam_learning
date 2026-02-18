@@ -13,9 +13,6 @@
 # "Error code: invalid literal for int() with base 10: '*'"
 
 
-from typing import Union
-
-
 def divide(str_with_ints: str) -> Union[float, str]:
     """
     Returns the result of dividing two numbers or an error message.
@@ -25,4 +22,13 @@ def divide(str_with_ints: str) -> Union[float, str]:
         result of dividing: float, ex. 2.0 (4 / 2 = 2.0);
         error response in "Error code: {error message}: str;
     """
-    raise NotImplementedError('Implement me!')
+    try:
+        a_str, b_str = str_with_ints.split()
+        divide_parts = int(a_str) / int(b_str)
+        return divide_parts
+    except Exception as e:
+        return f"Error code: {e}"
+
+print(divide("4 2"))
+print(divide("4 0"))
+print(divide("* 1"))
