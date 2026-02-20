@@ -22,8 +22,17 @@ class Bird:
         return f"{self.name} bird can walk and fly"
 
 
-class FlyingBird:
-    pass
+class FlyingBird(Bird):
+
+    def __init__(self, name, ration='grains'):
+        super().__init__(name)
+        self.ration = ration
+
+    def eat(self):
+        return f"It eats mostly {self.ration}"
+
+    def __str__(self):
+        return f"{self.name} bird can walk and fly"
 
 
 class NonFlyingBird:
