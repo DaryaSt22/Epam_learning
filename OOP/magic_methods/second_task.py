@@ -36,7 +36,22 @@ class FlyingBird(Bird):
 
 
 class NonFlyingBird:
-    pass
+
+    def __init__(self, name, ration='fish'):
+        self.name = name
+        self.ration = ration
+
+    def swim(self):
+        return f"{self.name} bird can swim"
+
+    def eat(self):
+        return f"It eats mostly {self.ration}"
+
+    def walk(self):
+        return f"{self.name} bird can walk"
+
+    def __str__(self):
+        return f"{self.name} bird can walk and swim"
 
 
 class SuperBird:
