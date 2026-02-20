@@ -54,5 +54,9 @@ class NonFlyingBird:
         return f"{self.name} bird can walk and swim"
 
 
-class SuperBird:
-    pass
+class SuperBird(NonFlyingBird, FlyingBird):
+
+
+
+    def __str__(self):
+        return f"{self.name} bird can walk, swim and fly"
