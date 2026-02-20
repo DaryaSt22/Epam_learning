@@ -8,7 +8,18 @@
 
 
 class Bird:
-    pass
+
+    def __init__(self, name):
+        self.name = name
+
+    def walk(self):
+        return f"{self.name} bird can walk"
+
+    def fly(self):
+        return f"{self.name} bird can fly"
+
+    def __str__(self):
+        return f"{self.name} bird can walk and fly"
 
 
 class FlyingBird:
