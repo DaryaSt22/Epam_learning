@@ -56,7 +56,8 @@ class NonFlyingBird:
 
 class SuperBird(NonFlyingBird, FlyingBird):
 
-
+    def eat(self):
+        return f"It eats mostly {self.ration}"
 
     def __str__(self):
         return f"{self.name} bird can walk, swim and fly"
