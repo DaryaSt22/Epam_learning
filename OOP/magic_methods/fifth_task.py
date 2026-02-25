@@ -4,3 +4,11 @@
 # Until exiting this context the new created directory becomes current one and all actions are executed in scope of this new directory.
 # When exiting this context, the temporary directory is removed with all files in it. Use rmtree from shutil to remove whole directory.
 # The new working directory becomes the same as before entering context.
+
+
+import os
+import shutil
+
+class TempDir:
+    pass
+    # TODO: please ad your code here
