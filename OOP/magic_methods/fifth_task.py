@@ -11,7 +11,29 @@
 
 import os
 import shutil
+import uuid
+
 
 class TempDir:
     pass
+
     # TODO: please ad your code here
+
+    def __enter__(self):
+        original_dir = os.getcwd()
+        folder_name = str(uuid.uuid4())
+        self.original_dir = original_dir
+        self.folder_name = folder_name
+        os.mkdir(folder_name)
+        os.chdir(folder_name)
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        os.chdir(self.original_dir)
+        full_path = os.path.join(self.original_dir, self.folder_name)
+        shutil.rmtree(full_path)
+
+
+if __name__ == "__main__":
+    with TempDir():
+        pass
