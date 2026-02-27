@@ -11,4 +11,22 @@ import os
 
 class Cd:
     pass
+
     # TODO: please add your code here
+
+    def __init__(self, path):
+        self.path = path
+        if os.path.isdir(path):
+            self.path = os.path.abspath(path)
+        else:
+            raise ValueError
+
+    def __enter__(self):
+        self._new_dir = self.path
+        self._previous_dir = os.getcwd()
+        os.chdir(self._new_dir)
+
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        os.chdir(self._previous_dir)
