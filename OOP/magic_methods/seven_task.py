@@ -19,3 +19,10 @@
 # When an exception is happened the error message has to be put in An error occured: into the log and reraised upper.
 #
 # Use open builtin function to open the log file.
+
+
+from contextlib import ContextDecorator
+
+
+class LogFile(ContextDecorator):
+    pass
