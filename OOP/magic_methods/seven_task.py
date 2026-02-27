@@ -21,8 +21,21 @@
 # Use open builtin function to open the log file.
 
 
+from datetime import datetime
 from contextlib import ContextDecorator
 
 
 class LogFile(ContextDecorator):
-    pass
+
+    def __init__(self, filename):
+        self._filename = filename
+
+
+    def __enter__(self):
+        start_time = datetime.now()
+        self._start_time = start_time
+
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass
