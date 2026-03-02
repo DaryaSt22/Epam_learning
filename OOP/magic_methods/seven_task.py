@@ -30,7 +30,6 @@ class LogFile(ContextDecorator):
     def __init__(self, filename):
         self._filename = filename
 
-
     def __enter__(self):
         start_time = datetime.now()
         self._start_time = start_time
@@ -38,4 +37,12 @@ class LogFile(ContextDecorator):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        pass
+        self.end_time = datetime.now()
+        self.run = self.end_time - self._start_time
+        if exc_val is None:
+            error_text = None
+        else:
+            error_text = str(exc_val)
+        line = f"Start: {self._start_time} | Run: {self.run} | An error occurred: {error_text}"
+        with open(self._filename, 'a', encoding='utf-8') as file:
+            file.write(line + "\n")
