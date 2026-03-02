@@ -8,3 +8,15 @@
 # True
 
 
+class Sun:
+    # TODO: please add your code here
+
+    _instance = None
+
+    @classmethod
+    def inst(cls):
+        if cls._instance is None:
+            cls._instance = cls()
+        else:
+            return cls._instance
+        return cls._instance
