@@ -17,6 +17,18 @@
 
 
 class Cipher:
+
+    def __init__(self, keyword):
+        self.keyword = keyword
+        self.plain = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        keyword_upper = keyword.upper()
+        result_upper_text = "".join(dict.fromkeys(keyword_upper))
+        tail = ""
+        for ch in self.plain:
+            if ch not in result_upper_text:
+                tail += ch
+        self.cipher = result_upper_text + tail
+
     def encode(self, data):
         pass
         # TODO: please add your code here
