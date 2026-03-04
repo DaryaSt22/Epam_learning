@@ -30,9 +30,36 @@ class Cipher:
         self.cipher = result_upper_text + tail
 
     def encode(self, data):
-        pass
         # TODO: please add your code here
 
+        string_to_encode = ""
+        for char in data:
+            up = char.upper()
+            if up in self.plain:
+                idx = self.plain.index(up)
+                mapped = self.cipher[idx]
+                if char.islower():
+                    mapped = mapped.lower()
+                string_to_encode += mapped
+            else:
+                string_to_encode += char
+
+        return string_to_encode
+
     def decode(self, data):
-        pass
+
         # TODO: please add your code here
+
+        string_to_decode = ""
+        for char in data:
+            up = char.upper()
+            if up in self.cipher:
+                idx = self.cipher.index(up)
+                mapped = self.plain[idx]
+                if char.islower():
+                    mapped = mapped.lower()
+                string_to_decode += mapped
+            else:
+                string_to_decode += char
+
+        return string_to_decode
